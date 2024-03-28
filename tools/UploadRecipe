@@ -1,0 +1,54 @@
+#!/bin/bash
+
+log () {
+    local message=$1
+    echo "UploadRecipe: $1"
+}
+
+die () {
+    local message=$1
+    local errcode=$2
+    log "Fatal Error $errcode"
+    log "$message"
+    log "Aborting..."
+
+    exit $errcode
+}
+
+
+name=$1
+version=$2
+if [[ -z "$name" ]]; then
+    die "No Package Name"  1 
+elif [[ -z "$version" ]]; then
+    die "No Package Version"  2 
+fi
+
+
+branch=submit-$name-$version
+
+pushd /Data/Compile/Recipes
+
+log "Syncing Recipes"
+sudo git checkout master
+sudo git pull
+
+log "Creating Branch"
+sudo git checkout -b $branch
+sudo git add $name/$version
+
+log "Commiting Changes"
+sudo git commit -m "$name $version"
+
+log "Pushing changes upstream"
+sudo git push --set-upstream origin $branch
+
+log "Returning to master branch"
+sudo git checkout master
+
+popd
+
+log "Success!"
+log "Don't forget to send a PR!"
+exit 0
+
