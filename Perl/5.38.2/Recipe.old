@@ -6,33 +6,31 @@ compile_version=1.8.2
 recipe_type=configure
 configure=Configure
 configure_options=(
-   -des
+   -de
    -Dcc=gcc
-   -Dprefix="${target}"
-   -Dvendorprefix="${target}"
-   -Dprivlib="${target}/lib/perl5/5.38/core_perl"
-   -Darchlib="${target}/lib/perl5/5.38/core_perl"
-   -Dsitelib="${goboSystem}/Aliens/CPAN/lib/perl5/5.38/site_perl"
-   -Dsitearch="${goboSystem}/Aliens/CPAN/lib/perl5/5.38/site_perl"
-   -Dvendorlib="${goboSystem}/lib/perl5/5.38/vendor_perl"
-   -Dvendorarch="${goboSystem}/lib/perl5/5.38/vendor_perl"
-   -Dman1dir="${target}/share/man/man1"
-   -Dman3dir="${target}/share/man/man3"
-   -Duseshrplib
    -Dusethreads
    -Duselargefiles
    -Uusesfio
+   -Dprefix=$target
+   -Dman1dir=$target/share/man/man1
+   -Dman3dir=$target/share/man/man3
+   -Duseshrplib
    -Dlibperl='libperl.so.5.38'
-   -Dlocincpth="${goboHeaders}"
-   -Dloclibpth="${goboLibraries}"
-   -Dlibpth="${goboLibraries}"
+   -Dotherlibdirs=$goboSystem/Aliens/CPAN/.cpan:$goboSystem/Aliens/CPAN/lib/perl5:$goboLibraries/perl5:$goboLibraries/perl5/site_perl
+   -Dlocincpth="$goboHeaders"
+   -Dloclibpth="$goboLibraries"
+   -Dlibpth="$goboLibraries"
    cf_by='GoboLinux'
    -Dpager="${goboExecutables}/less -isR"
    -Dusemultiplicity
+   # Configure options to consider:
+   # -Duseshrplib useful for embeding perl (ie mod_perl)
+   # a DBM would be useful (dbm_opem() for binding hashes to files) would add a dependency
+   # -Dlibspath
 )
 
 install_variables=(
-   DESTDIR="${target}"
+   DESTDIR=$target
 )
 
 unmanaged_files=(
@@ -47,6 +45,10 @@ pre_patch() {
 }
 
 pre_install() {
+   # the symlink is needed for Embed test
+   ln -sf libperl.so.5.38 "${sourcedir}/libperl.so"
+   # but the symlink confuses installation
+   rm -f "${sourcedir}/libperl.so"
    # Not using $goboIndex here to prevent bad matching when that
    # variable is not set
    sed -i.bak \
@@ -75,14 +77,7 @@ do_install() {
    installarchlib=$(dirname "${archfile}")
    $sudo_exec ln -sfv libperl.so.5.38 "${installarchlib}/CORE/libperl.so.5"
    $sudo_exec ln -sfv libperl.so.5.38 "${installarchlib}/CORE/libperl.so"
-  
-   # site_perl folder symlink (Alien)
-   $sudo_exec mkdir -pv "${goboSystem}/Aliens/CPAN/lib/perl5/5.38/site_perl"
-   $sudo_exec ln -sfv "${goboSystem}/Aliens/CPAN/lib/perl5/5.38/site_perl" "${target}/lib/perl5/5.38/site_perl"
-
-   # vendor_perl folder creation
-   $sudo_exec mkdir -pv "${goboSystem}/lib/perl5/5.38/vendor_perl"
-
+   
    echo "END"
 }
 
@@ -94,5 +89,3 @@ post_install() {
       s,\([A-Z0-9_]*\)=~,\1='${cpandir}',g;
    ' ${recipedir}/MyConfig.pm.in | $sudo_exec tee ${cpandir}/.cpan/CPAN/MyConfig.pm >/dev/null
 }
-
-
