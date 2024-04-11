@@ -1,0 +1,28 @@
+#!/bin/bash
+
+name=$1
+if [[ -z "${name}" ]]
+then
+   echo "FindDependencies: no package given"
+   exit 1
+fi
+
+
+for dep_file in $(grep --files-with-matches "${name}" /Programs/*/*/Resources/Dependencies)
+do
+   package_path=${dep_file/\/Resources\/Dependencies*}
+   package_info=${package_path/\/Programs\/}
+   package_name=${package_info%\/*}
+   package_version=${package_info/*\/}
+   if [[ "${package_version}" == 'Current' ]]
+   then
+       continue
+   fi
+
+   grep_line=$(grep "${name}" $dep_file)
+
+   printf "%-40s %s\n" "${package_name} ${package_version}" "${grep_line}"
+done
+
+    
+
