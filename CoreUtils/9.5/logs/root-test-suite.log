@@ -1,0 +1,1468 @@
+===============================================
+   GNU coreutils 9.5: ./tests/test-suite.log
+===============================================
+
+# TOTAL: 35
+# PASS:  27
+# SKIP:  7
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+FAIL: tests/chgrp/from
+======================
+
+++ initial_cwd_=/Data/Compile/Sources/coreutils-9.5
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /Data/Compile/Sources/coreutils-9.5 gt-from.sh.XXXX
++++ case $# in
++++ destdir_=/Data/Compile/Sources/coreutils-9.5
++++ template_=gt-from.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/Data/Compile/Sources/coreutils-9.5/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/Data/Compile/Sources/coreutils-9.5/gt-from.sh.Fp6L
++++ case $d in
++++ :
++++ test -d /Data/Compile/Sources/coreutils-9.5/gt-from.sh.Fp6L
+++++ ls -dgo /Data/Compile/Sources/coreutils-9.5/gt-from.sh.Fp6L
++++ perms='drwx--S--- 2 4096 Apr 11 08:48 /Data/Compile/Sources/coreutils-9.5/gt-from.sh.Fp6L'
++++ case $perms in
++++ :
++++ echo /Data/Compile/Sources/coreutils-9.5/gt-from.sh.Fp6L
++++ return
+++ test_dir_=/Data/Compile/Sources/coreutils-9.5/gt-from.sh.Fp6L
+++ cd /Data/Compile/Sources/coreutils-9.5/gt-from.sh.Fp6L
+++ case $srcdir in
+++ srcdir=../.
+++ builddir=..
+++ export srcdir builddir
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ saved_IFS=' 	
+'
+++ IFS=:
+++ new_PATH=
+++ sep_=
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /Data/Compile/Sources/coreutils-9.5/src/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ sep_=:
+++ IFS=' 	
+'
+++ PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ export PATH
+++ trap remove_tmp_ EXIT
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/Data/Compile/Sources/coreutils-9.5/./src
++ case $abs_path_dir_ in
++ PATH=/Data/Compile/Sources/coreutils-9.5/./src:/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /Data/Compile/Sources/coreutils-9.5/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ chgrp
++ require_built_ chgrp
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env chgrp --version
+chgrp (GNU coreutils) 9.5
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by David MacKenzie and Jim Meyering.
++ require_root_
++ uid_is_privileged_
+++ id -u
++ my_uid=0
++ case $my_uid in
++ NON_ROOT_USERNAME=dev
+++ id -g dev
++ NON_ROOT_GID=100
++ grep '^[ ]*chroot' .././tests/chgrp/from.sh
++ touch f
++ chgrp -R --preserve-root 1 f
+++ ls -n f
++ set _ -rw-r--r-- 1 0 1 0 Apr 11 08:48 f
++ shift
++ test :1 = :1
++ chgrp -v --from=42 43 f
+++ id -nu 1
+id: '1': no such user
++ printf 'group of '\''f'\'' retained as \n'
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ LC_ALL=C
++ diff -u exp out
+--- exp	2024-04-11 08:48:40.610756308 -0400
++++ out	2024-04-11 08:48:40.567422974 -0400
+@@ -1 +1 @@
+-group of 'f' retained as 
++group of 'f' retained as bin
++ fail=1
++ chgrp --from=:1 010 f
+++ ls -n f
++ set _ -rw-r--r-- 1 0 10 0 Apr 11 08:48 f
++ shift
++ test :10 = :10
++ ln -s f slink
++ chgrp --no-dereference 1 slink
+++ ls -n slink
++ set _ lrwxrwxrwx 1 0 1 1 Apr 11 08:48 slink '->' f
++ shift
++ test :1 = :1
+++ ls -n f
++ set _ -rw-r--r-- 1 0 10 0 Apr 11 08:48 f
++ shift
++ test :10 = :10
++ chgrp --no-dereference --from=:1 010 slink
+++ ls -n slink
++ set _ lrwxrwxrwx 1 0 10 1 Apr 11 08:48 slink '->' f
++ shift
++ test :10 = :10
++ Exit 1
++ set +e
++ exit 1
++ exit 1
++ remove_tmp_
++ __st=1
++ cleanup_
++ :
++ test '' = yes
++ cd /Data/Compile/Sources/coreutils-9.5
++ chmod -R u+rwx /Data/Compile/Sources/coreutils-9.5/gt-from.sh.Fp6L
++ rm -rf /Data/Compile/Sources/coreutils-9.5/gt-from.sh.Fp6L
++ exit 1
+FAIL tests/chgrp/from.sh (exit status: 1)
+
+SKIP: tests/cp/cp-a-selinux
+===========================
+
+++ initial_cwd_=/Data/Compile/Sources/coreutils-9.5
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /Data/Compile/Sources/coreutils-9.5 gt-cp-a-selinux.sh.XXXX
++++ case $# in
++++ destdir_=/Data/Compile/Sources/coreutils-9.5
++++ template_=gt-cp-a-selinux.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/Data/Compile/Sources/coreutils-9.5/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/Data/Compile/Sources/coreutils-9.5/gt-cp-a-selinux.sh.3Urd
++++ case $d in
++++ :
++++ test -d /Data/Compile/Sources/coreutils-9.5/gt-cp-a-selinux.sh.3Urd
+++++ ls -dgo /Data/Compile/Sources/coreutils-9.5/gt-cp-a-selinux.sh.3Urd
++++ perms='drwx--S--- 2 4096 Apr 11 08:48 /Data/Compile/Sources/coreutils-9.5/gt-cp-a-selinux.sh.3Urd'
++++ case $perms in
++++ :
++++ echo /Data/Compile/Sources/coreutils-9.5/gt-cp-a-selinux.sh.3Urd
++++ return
+++ test_dir_=/Data/Compile/Sources/coreutils-9.5/gt-cp-a-selinux.sh.3Urd
+++ cd /Data/Compile/Sources/coreutils-9.5/gt-cp-a-selinux.sh.3Urd
+++ case $srcdir in
+++ srcdir=../.
+++ builddir=..
+++ export srcdir builddir
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ saved_IFS=' 	
+'
+++ IFS=:
+++ new_PATH=
+++ sep_=
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /Data/Compile/Sources/coreutils-9.5/src/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ sep_=:
+++ IFS=' 	
+'
+++ PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ export PATH
+++ trap remove_tmp_ EXIT
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/Data/Compile/Sources/coreutils-9.5/./src
++ case $abs_path_dir_ in
++ PATH=/Data/Compile/Sources/coreutils-9.5/./src:/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /Data/Compile/Sources/coreutils-9.5/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ cp
++ require_built_ cp
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env cp --version
+cp (GNU coreutils) 9.5
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Torbjorn Granlund, David MacKenzie, and Jim Meyering.
++ require_root_
++ uid_is_privileged_
+++ id -u
++ my_uid=0
++ case $my_uid in
++ NON_ROOT_USERNAME=dev
+++ id -g dev
++ NON_ROOT_GID=100
++ grep '^[ ]*chroot' .././tests/cp/cp-a-selinux.sh
++ require_selinux_
++ grep 'selinuxfs$' /proc/filesystems
++ skip_ 'this system lacks SELinux support'
++ warn_ 'cp-a-selinux.sh: skipped test: this system lacks SELinux support'
++ case $IFS in
++ printf '%s\n' 'cp-a-selinux.sh: skipped test: this system lacks SELinux support'
+cp-a-selinux.sh: skipped test: this system lacks SELinux support
++ test 9 = 2
++ printf '%s\n' 'cp-a-selinux.sh: skipped test: this system lacks SELinux support'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /Data/Compile/Sources/coreutils-9.5
++ chmod -R u+rwx /Data/Compile/Sources/coreutils-9.5/gt-cp-a-selinux.sh.3Urd
++ rm -rf /Data/Compile/Sources/coreutils-9.5/gt-cp-a-selinux.sh.3Urd
++ exit 77
+SKIP tests/cp/cp-a-selinux.sh (exit status: 77)
+
+SKIP: tests/install/install-C-root
+==================================
+
+++ initial_cwd_=/Data/Compile/Sources/coreutils-9.5
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /Data/Compile/Sources/coreutils-9.5 gt-install-C-root.sh.XXXX
++++ case $# in
++++ destdir_=/Data/Compile/Sources/coreutils-9.5
++++ template_=gt-install-C-root.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/Data/Compile/Sources/coreutils-9.5/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/Data/Compile/Sources/coreutils-9.5/gt-install-C-root.sh.TTPa
++++ case $d in
++++ :
++++ test -d /Data/Compile/Sources/coreutils-9.5/gt-install-C-root.sh.TTPa
+++++ ls -dgo /Data/Compile/Sources/coreutils-9.5/gt-install-C-root.sh.TTPa
++++ perms='drwx--S--- 2 4096 Apr 11 08:48 /Data/Compile/Sources/coreutils-9.5/gt-install-C-root.sh.TTPa'
++++ case $perms in
++++ :
++++ echo /Data/Compile/Sources/coreutils-9.5/gt-install-C-root.sh.TTPa
++++ return
+++ test_dir_=/Data/Compile/Sources/coreutils-9.5/gt-install-C-root.sh.TTPa
+++ cd /Data/Compile/Sources/coreutils-9.5/gt-install-C-root.sh.TTPa
+++ case $srcdir in
+++ srcdir=../.
+++ builddir=..
+++ export srcdir builddir
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ saved_IFS=' 	
+'
+++ IFS=:
+++ new_PATH=
+++ sep_=
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /Data/Compile/Sources/coreutils-9.5/src/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ sep_=:
+++ IFS=' 	
+'
+++ PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ export PATH
+++ trap remove_tmp_ EXIT
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/Data/Compile/Sources/coreutils-9.5/./src
++ case $abs_path_dir_ in
++ PATH=/Data/Compile/Sources/coreutils-9.5/./src:/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /Data/Compile/Sources/coreutils-9.5/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ ginstall
++ require_built_ ginstall
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env ginstall --version
+install (GNU coreutils) 9.5
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by David MacKenzie.
++ require_root_
++ uid_is_privileged_
+++ id -u
++ my_uid=0
++ case $my_uid in
++ NON_ROOT_USERNAME=dev
+++ id -g dev
++ NON_ROOT_GID=100
++ grep '^[ ]*chroot' .././tests/install/install-C-root.sh
++ skip_if_setgid_
++ setgid_tmpdir=setgid-12178
++ umask 77
++ mkdir setgid-12178
+++ stat --printf %A setgid-12178
++ perms=drwx--S---
++ rmdir setgid-12178
++ case $perms in
++ skip_ 'this directory has the setgid bit set'
++ warn_ 'install-C-root.sh: skipped test: this directory has the setgid bit set'
++ case $IFS in
++ printf '%s\n' 'install-C-root.sh: skipped test: this directory has the setgid bit set'
+install-C-root.sh: skipped test: this directory has the setgid bit set
++ test 9 = 2
++ printf '%s\n' 'install-C-root.sh: skipped test: this directory has the setgid bit set'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /Data/Compile/Sources/coreutils-9.5
++ chmod -R u+rwx /Data/Compile/Sources/coreutils-9.5/gt-install-C-root.sh.TTPa
++ rm -rf /Data/Compile/Sources/coreutils-9.5/gt-install-C-root.sh.TTPa
++ exit 77
+SKIP tests/install/install-C-root.sh (exit status: 77)
+
+SKIP: tests/chcon/chcon
+=======================
+
+++ initial_cwd_=/Data/Compile/Sources/coreutils-9.5
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /Data/Compile/Sources/coreutils-9.5 gt-chcon.sh.XXXX
++++ case $# in
++++ destdir_=/Data/Compile/Sources/coreutils-9.5
++++ template_=gt-chcon.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/Data/Compile/Sources/coreutils-9.5/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/Data/Compile/Sources/coreutils-9.5/gt-chcon.sh.O3yI
++++ case $d in
++++ :
++++ test -d /Data/Compile/Sources/coreutils-9.5/gt-chcon.sh.O3yI
+++++ ls -dgo /Data/Compile/Sources/coreutils-9.5/gt-chcon.sh.O3yI
++++ perms='drwx--S--- 2 4096 Apr 11 08:48 /Data/Compile/Sources/coreutils-9.5/gt-chcon.sh.O3yI'
++++ case $perms in
++++ :
++++ echo /Data/Compile/Sources/coreutils-9.5/gt-chcon.sh.O3yI
++++ return
+++ test_dir_=/Data/Compile/Sources/coreutils-9.5/gt-chcon.sh.O3yI
+++ cd /Data/Compile/Sources/coreutils-9.5/gt-chcon.sh.O3yI
+++ case $srcdir in
+++ srcdir=../.
+++ builddir=..
+++ export srcdir builddir
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ saved_IFS=' 	
+'
+++ IFS=:
+++ new_PATH=
+++ sep_=
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /Data/Compile/Sources/coreutils-9.5/src/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ sep_=:
+++ IFS=' 	
+'
+++ PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ export PATH
+++ trap remove_tmp_ EXIT
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/Data/Compile/Sources/coreutils-9.5/./src
++ case $abs_path_dir_ in
++ PATH=/Data/Compile/Sources/coreutils-9.5/./src:/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /Data/Compile/Sources/coreutils-9.5/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ chcon
++ require_built_ chcon
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env chcon --version
+chcon (GNU coreutils) 9.5
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Russell Coker and Jim Meyering.
++ require_root_
++ uid_is_privileged_
+++ id -u
++ my_uid=0
++ case $my_uid in
++ NON_ROOT_USERNAME=dev
+++ id -g dev
++ NON_ROOT_GID=100
++ grep '^[ ]*chroot' .././tests/chcon/chcon.sh
++ require_selinux_
++ grep 'selinuxfs$' /proc/filesystems
++ skip_ 'this system lacks SELinux support'
++ warn_ 'chcon.sh: skipped test: this system lacks SELinux support'
++ case $IFS in
++ printf '%s\n' 'chcon.sh: skipped test: this system lacks SELinux support'
+chcon.sh: skipped test: this system lacks SELinux support
++ test 9 = 2
++ printf '%s\n' 'chcon.sh: skipped test: this system lacks SELinux support'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /Data/Compile/Sources/coreutils-9.5
++ chmod -R u+rwx /Data/Compile/Sources/coreutils-9.5/gt-chcon.sh.O3yI
++ rm -rf /Data/Compile/Sources/coreutils-9.5/gt-chcon.sh.O3yI
++ exit 77
+SKIP tests/chcon/chcon.sh (exit status: 77)
+
+SKIP: tests/misc/selinux
+========================
+
+++ initial_cwd_=/Data/Compile/Sources/coreutils-9.5
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /Data/Compile/Sources/coreutils-9.5 gt-selinux.sh.XXXX
++++ case $# in
++++ destdir_=/Data/Compile/Sources/coreutils-9.5
++++ template_=gt-selinux.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/Data/Compile/Sources/coreutils-9.5/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/Data/Compile/Sources/coreutils-9.5/gt-selinux.sh.FDjD
++++ case $d in
++++ :
++++ test -d /Data/Compile/Sources/coreutils-9.5/gt-selinux.sh.FDjD
+++++ ls -dgo /Data/Compile/Sources/coreutils-9.5/gt-selinux.sh.FDjD
++++ perms='drwx--S--- 2 4096 Apr 11 08:49 /Data/Compile/Sources/coreutils-9.5/gt-selinux.sh.FDjD'
++++ case $perms in
++++ :
++++ echo /Data/Compile/Sources/coreutils-9.5/gt-selinux.sh.FDjD
++++ return
+++ test_dir_=/Data/Compile/Sources/coreutils-9.5/gt-selinux.sh.FDjD
+++ cd /Data/Compile/Sources/coreutils-9.5/gt-selinux.sh.FDjD
+++ case $srcdir in
+++ srcdir=../.
+++ builddir=..
+++ export srcdir builddir
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ saved_IFS=' 	
+'
+++ IFS=:
+++ new_PATH=
+++ sep_=
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /Data/Compile/Sources/coreutils-9.5/src/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ sep_=:
+++ IFS=' 	
+'
+++ PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ export PATH
+++ trap remove_tmp_ EXIT
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/Data/Compile/Sources/coreutils-9.5/./src
++ case $abs_path_dir_ in
++ PATH=/Data/Compile/Sources/coreutils-9.5/./src:/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /Data/Compile/Sources/coreutils-9.5/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ chcon cp ls mv stat
++ require_built_ chcon cp ls mv stat
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ for i in "$@"
++ case " $built_programs " in
++ for i in "$@"
++ case " $built_programs " in
++ for i in "$@"
++ case " $built_programs " in
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env chcon --version
+chcon (GNU coreutils) 9.5
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Russell Coker and Jim Meyering.
++ for i in $*
++ env cp --version
+cp (GNU coreutils) 9.5
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Torbjorn Granlund, David MacKenzie, and Jim Meyering.
++ for i in $*
++ env ls --version
+ls (GNU coreutils) 9.5
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Richard M. Stallman and David MacKenzie.
++ for i in $*
++ env mv --version
+mv (GNU coreutils) 9.5
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Mike Parker, David MacKenzie, and Jim Meyering.
++ for i in $*
++ env stat --version
+stat (GNU coreutils) 9.5
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Michael Meskes.
++ require_root_
++ uid_is_privileged_
+++ id -u
++ my_uid=0
++ case $my_uid in
++ NON_ROOT_USERNAME=dev
+++ id -g dev
++ NON_ROOT_GID=100
++ grep '^[ ]*chroot' .././tests/misc/selinux.sh
++ require_selinux_
++ grep 'selinuxfs$' /proc/filesystems
++ skip_ 'this system lacks SELinux support'
++ warn_ 'selinux.sh: skipped test: this system lacks SELinux support'
++ case $IFS in
++ printf '%s\n' 'selinux.sh: skipped test: this system lacks SELinux support'
+selinux.sh: skipped test: this system lacks SELinux support
++ test 9 = 2
++ printf '%s\n' 'selinux.sh: skipped test: this system lacks SELinux support'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /Data/Compile/Sources/coreutils-9.5
++ chmod -R u+rwx /Data/Compile/Sources/coreutils-9.5/gt-selinux.sh.FDjD
++ rm -rf /Data/Compile/Sources/coreutils-9.5/gt-selinux.sh.FDjD
++ exit 77
+SKIP tests/misc/selinux.sh (exit status: 77)
+
+SKIP: tests/mkdir/writable-under-readonly
+=========================================
+
+++ initial_cwd_=/Data/Compile/Sources/coreutils-9.5
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /Data/Compile/Sources/coreutils-9.5 gt-writable-under-readonly.sh.XXXX
++++ case $# in
++++ destdir_=/Data/Compile/Sources/coreutils-9.5
++++ template_=gt-writable-under-readonly.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/Data/Compile/Sources/coreutils-9.5/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/Data/Compile/Sources/coreutils-9.5/gt-writable-under-readonly.sh.v9SC
++++ case $d in
++++ :
++++ test -d /Data/Compile/Sources/coreutils-9.5/gt-writable-under-readonly.sh.v9SC
+++++ ls -dgo /Data/Compile/Sources/coreutils-9.5/gt-writable-under-readonly.sh.v9SC
++++ perms='drwx--S--- 2 4096 Apr 11 08:49 /Data/Compile/Sources/coreutils-9.5/gt-writable-under-readonly.sh.v9SC'
++++ case $perms in
++++ :
++++ echo /Data/Compile/Sources/coreutils-9.5/gt-writable-under-readonly.sh.v9SC
++++ return
+++ test_dir_=/Data/Compile/Sources/coreutils-9.5/gt-writable-under-readonly.sh.v9SC
+++ cd /Data/Compile/Sources/coreutils-9.5/gt-writable-under-readonly.sh.v9SC
+++ case $srcdir in
+++ srcdir=../.
+++ builddir=..
+++ export srcdir builddir
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ saved_IFS=' 	
+'
+++ IFS=:
+++ new_PATH=
+++ sep_=
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /Data/Compile/Sources/coreutils-9.5/src/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ sep_=:
+++ IFS=' 	
+'
+++ PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ export PATH
+++ trap remove_tmp_ EXIT
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/Data/Compile/Sources/coreutils-9.5/./src
++ case $abs_path_dir_ in
++ PATH=/Data/Compile/Sources/coreutils-9.5/./src:/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /Data/Compile/Sources/coreutils-9.5/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ mkdir
++ require_built_ mkdir
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env mkdir --version
+mkdir (GNU coreutils) 9.5
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by David MacKenzie.
++ require_root_
++ uid_is_privileged_
+++ id -u
++ my_uid=0
++ case $my_uid in
++ NON_ROOT_USERNAME=dev
+++ id -g dev
++ NON_ROOT_GID=100
++ grep '^[ ]*chroot' .././tests/mkdir/writable-under-readonly.sh
++ skip_ temporarily disabled
++ warn_ 'writable-under-readonly.sh: skipped test: temporarily' disabled
++ case $IFS in
++ printf '%s\n' 'writable-under-readonly.sh: skipped test: temporarily disabled'
+writable-under-readonly.sh: skipped test: temporarily disabled
++ test 9 = 2
++ printf '%s\n' 'writable-under-readonly.sh: skipped test: temporarily disabled'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /Data/Compile/Sources/coreutils-9.5
++ chmod -R u+rwx /Data/Compile/Sources/coreutils-9.5/gt-writable-under-readonly.sh.v9SC
++ rm -rf /Data/Compile/Sources/coreutils-9.5/gt-writable-under-readonly.sh.v9SC
++ exit 77
+SKIP tests/mkdir/writable-under-readonly.sh (exit status: 77)
+
+SKIP: tests/mkdir/smack-root
+============================
+
+++ initial_cwd_=/Data/Compile/Sources/coreutils-9.5
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /Data/Compile/Sources/coreutils-9.5 gt-smack-root.sh.XXXX
++++ case $# in
++++ destdir_=/Data/Compile/Sources/coreutils-9.5
++++ template_=gt-smack-root.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/Data/Compile/Sources/coreutils-9.5/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/Data/Compile/Sources/coreutils-9.5/gt-smack-root.sh.rtak
++++ case $d in
++++ :
++++ test -d /Data/Compile/Sources/coreutils-9.5/gt-smack-root.sh.rtak
+++++ ls -dgo /Data/Compile/Sources/coreutils-9.5/gt-smack-root.sh.rtak
++++ perms='drwx--S--- 2 4096 Apr 11 08:49 /Data/Compile/Sources/coreutils-9.5/gt-smack-root.sh.rtak'
++++ case $perms in
++++ :
++++ echo /Data/Compile/Sources/coreutils-9.5/gt-smack-root.sh.rtak
++++ return
+++ test_dir_=/Data/Compile/Sources/coreutils-9.5/gt-smack-root.sh.rtak
+++ cd /Data/Compile/Sources/coreutils-9.5/gt-smack-root.sh.rtak
+++ case $srcdir in
+++ srcdir=../.
+++ builddir=..
+++ export srcdir builddir
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ saved_IFS=' 	
+'
+++ IFS=:
+++ new_PATH=
+++ sep_=
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /Data/Compile/Sources/coreutils-9.5/src/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ sep_=:
+++ IFS=' 	
+'
+++ PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ export PATH
+++ trap remove_tmp_ EXIT
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/Data/Compile/Sources/coreutils-9.5/./src
++ case $abs_path_dir_ in
++ PATH=/Data/Compile/Sources/coreutils-9.5/./src:/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /Data/Compile/Sources/coreutils-9.5/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ mkdir mkfifo mknod
++ require_built_ mkdir mkfifo mknod
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ for i in "$@"
++ case " $built_programs " in
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env mkdir --version
+mkdir (GNU coreutils) 9.5
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by David MacKenzie.
++ for i in $*
++ env mkfifo --version
+mkfifo (GNU coreutils) 9.5
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by David MacKenzie.
++ for i in $*
++ env mknod --version
+mknod (GNU coreutils) 9.5
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by David MacKenzie.
++ require_smack_
++ grep 'smackfs$' /proc/filesystems
++ skip_ 'this system lacks SMACK support'
++ warn_ 'smack-root.sh: skipped test: this system lacks SMACK support'
++ case $IFS in
++ printf '%s\n' 'smack-root.sh: skipped test: this system lacks SMACK support'
+smack-root.sh: skipped test: this system lacks SMACK support
++ test 9 = 2
++ printf '%s\n' 'smack-root.sh: skipped test: this system lacks SMACK support'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /Data/Compile/Sources/coreutils-9.5
++ chmod -R u+rwx /Data/Compile/Sources/coreutils-9.5/gt-smack-root.sh.rtak
++ rm -rf /Data/Compile/Sources/coreutils-9.5/gt-smack-root.sh.rtak
++ exit 77
+SKIP tests/mkdir/smack-root.sh (exit status: 77)
+
+SKIP: tests/mv/hardlink-case
+============================
+
+++ initial_cwd_=/Data/Compile/Sources/coreutils-9.5
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /Data/Compile/Sources/coreutils-9.5 gt-hardlink-case.sh.XXXX
++++ case $# in
++++ destdir_=/Data/Compile/Sources/coreutils-9.5
++++ template_=gt-hardlink-case.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/Data/Compile/Sources/coreutils-9.5/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/Data/Compile/Sources/coreutils-9.5/gt-hardlink-case.sh.uRYP
++++ case $d in
++++ :
++++ test -d /Data/Compile/Sources/coreutils-9.5/gt-hardlink-case.sh.uRYP
+++++ ls -dgo /Data/Compile/Sources/coreutils-9.5/gt-hardlink-case.sh.uRYP
++++ perms='drwx--S--- 2 4096 Apr 11 08:49 /Data/Compile/Sources/coreutils-9.5/gt-hardlink-case.sh.uRYP'
++++ case $perms in
++++ :
++++ echo /Data/Compile/Sources/coreutils-9.5/gt-hardlink-case.sh.uRYP
++++ return
+++ test_dir_=/Data/Compile/Sources/coreutils-9.5/gt-hardlink-case.sh.uRYP
+++ cd /Data/Compile/Sources/coreutils-9.5/gt-hardlink-case.sh.uRYP
+++ case $srcdir in
+++ srcdir=../.
+++ builddir=..
+++ export srcdir builddir
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ saved_IFS=' 	
+'
+++ IFS=:
+++ new_PATH=
+++ sep_=
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /Data/Compile/Sources/coreutils-9.5/src/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/bin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin
+++ sep_=:
+++ for dir in $PATH
+++ case "$dir" in
+++ test -d /usr/sbin/.
+++ new_PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ sep_=:
+++ IFS=' 	
+'
+++ PATH=/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
+++ export PATH
+++ trap remove_tmp_ EXIT
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/Data/Compile/Sources/coreutils-9.5/./src
++ case $abs_path_dir_ in
++ PATH=/Data/Compile/Sources/coreutils-9.5/./src:/Data/Compile/Sources/coreutils-9.5/src:/usr/bin:/usr/bin:/usr/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /Data/Compile/Sources/coreutils-9.5/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ mv
++ require_built_ mv
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env mv --version
+mv (GNU coreutils) 9.5
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Mike Parker, David MacKenzie, and Jim Meyering.
++ require_root_
++ uid_is_privileged_
+++ id -u
++ my_uid=0
++ case $my_uid in
++ NON_ROOT_USERNAME=dev
+++ id -g dev
++ NON_ROOT_GID=100
++ grep '^[ ]*chroot' .././tests/mv/hardlink-case.sh
+++ pwd
++ cwd=/Data/Compile/Sources/coreutils-9.5/gt-hardlink-case.sh.uRYP
++ truncate -s100M hfs.img
++ mkfs -t hfsplus hfs.img
+mkfs: failed to execute mkfs.hfsplus: No such file or directory
++ skip_ 'failed to create hfs file system'
++ warn_ 'hardlink-case.sh: skipped test: failed to create hfs file system'
++ case $IFS in
++ printf '%s\n' 'hardlink-case.sh: skipped test: failed to create hfs file system'
+hardlink-case.sh: skipped test: failed to create hfs file system
++ test 9 = 2
++ printf '%s\n' 'hardlink-case.sh: skipped test: failed to create hfs file system'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ cd /
++ umount /Data/Compile/Sources/coreutils-9.5/gt-hardlink-case.sh.uRYP/mnt
+umount: /Data/Compile/Sources/coreutils-9.5/gt-hardlink-case.sh.uRYP/mnt: no mount point specified.
++ test '' = yes
++ cd /Data/Compile/Sources/coreutils-9.5
++ chmod -R u+rwx /Data/Compile/Sources/coreutils-9.5/gt-hardlink-case.sh.uRYP
++ rm -rf /Data/Compile/Sources/coreutils-9.5/gt-hardlink-case.sh.uRYP
++ exit 77
+SKIP tests/mv/hardlink-case.sh (exit status: 77)
+
