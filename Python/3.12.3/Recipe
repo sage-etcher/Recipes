@@ -1,0 +1,30 @@
+# Recipe for version 3.12.3 by Sage I. Hendricks <sage.message@email.com>, on Wed 24 Apr 2024 03:40:19 PM EDT
+compile_version=1.8.5
+url="https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tar.xz"
+file_size=20625068
+file_md5=8defb33f0c37aa4bdd3a38ba52abde4e
+recipe_type=configure
+needs_safe_linking=yes
+
+configure_options=(
+    "--enable-shared"
+    "--with-system-expat"
+    "--enable-loadable-sqlite-extensions"
+    "--disable-test-modules"
+#    "--enable-optimizations"
+)
+
+environment=(
+    "CXX=/bin/g++"
+)
+
+pre_build() {
+   # Make sure that the /S/Aliens patch file is sane.
+   patchfile="${recipedir}/01-search-SLL.patch.in"
+   declared_minor=$(grep "+PYTHON_MINOR" "$patchfile" | awk {'print $3'})
+   recipe_minor=$(echo "$version" | cut -d. -f2)
+   if [ "$declared_minor" != "$recipe_minor" ]
+   then
+      Die "Please update PYTHON_MINOR in $patchfile"
+   fi
+}
