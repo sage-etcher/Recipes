@@ -1,0 +1,26 @@
+# Recipe for version 1.6.3 by Sage I. Hendricks <sage.message@email.com>, on Tue 07 May 2024 06:44:19 PM EDT
+# Recipe (MakeRecipe) for DejaGnu by Isaac Dupree <id@isaac.cedarswampstudios.org>, on Sun Dec 30 05:54:26 EST 2007
+compile_version=1.9.0
+url="http://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.3.tar.gz"
+file_size=622059
+file_md5=68c5208c58236eba447d7d6d1326b821
+file="dejagnu-1.6.3.tar.gz"
+recipe_type=configure
+needs_build_directory=yes
+configure_options=(
+   "--prefix=${target}"   
+)
+
+do_build() {
+   makeinfo --html --no-split -o doc/dejagnu.html ../doc/dejagnu.texi
+   makeinfo --plaintext       -o doc/dejagnu.txt  ../doc/dejagnu.texi
+}
+
+do_install() {
+   # Perform the regular installation
+   configure_do_install "$@"
+
+   # Perform some additional, nonstandard steps
+   install -v -dm755  "${target}/share/doc/dejagnu-1.6.3"
+   install -v -m644   doc/dejagnu.{html,txt} "${target}/share/doc/dejagnu-1.6.3"
+}
