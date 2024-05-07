@@ -1,0 +1,15 @@
+# Recipe for version 6.7.5 by Sage I. Hendricks <sage.message@email.com>, on Tue 07 May 2024 06:06:18 PM EDT
+# Recipe (MakeRecipe) for BC by Andreas Koehler, on Fri Aug 12 22:17:28 CEST 2005
+compile_version=1.8.0
+url="https://github.com/gavinhoward/bc/releases/download/6.7.5/bc-6.7.5.tar.xz"
+file_size=468572
+file_md5=e249b1f86f886d6fb71c15f72b65dd3d
+recipe_type=configure
+configure_options=(
+   -G
+   -O3
+   -r
+)
+environment=(
+   CC=gcc
+)
