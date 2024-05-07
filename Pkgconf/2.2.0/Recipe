@@ -1,0 +1,18 @@
+# Recipe (MakeRecipe) for Pkgconf by Sage I. Hendricks <sage.message@email.com>, on Tue 07 May 2024 07:25:21 PM EDT
+# Recipe for version 2.2.0 by Sage I. Hendricks <sage.message@email.com>, on Tue 07 May 2024 07:25:21 PM EDT
+compile_version=017-GIT
+url="https://distfiles.ariadne.space/pkgconf/pkgconf-2.2.0.tar.xz"
+file_size=311920
+file_md5=00e309a3bf0909030a4fc701389db2b9
+dir='pkgconf-2.2.0'
+recipe_type=configure
+configure_options=(
+   "--prefix=${target}"
+   "--disable-static"
+   "--docdir=${target}/share/doc/pkgconf-2.2.0"
+)
+
+pre_link() {
+   ln -sv pkgconf   ${target}/bin/pkg-config
+   ln -sv pkgconf.1 ${target}/share/man/man1/pkg-config.1
+}
