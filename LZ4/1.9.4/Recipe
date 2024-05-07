@@ -1,0 +1,9 @@
+# Recipe for version 1.9.4 by Sage I. Hendricks <sage.message@email.com>, on Tue 07 May 2024 05:38:32 PM EDT
+# Recipe (MakeRecipe) for LZ4 by Lucas C. Villa Real <lucasvr@gobolinux.org>, on Tue Sep 26 17:29:45 BRT 2017
+compile_version=016
+url="https://github.com/lz4/lz4/releases/download/v1.9.4/lz4-1.9.4.tar.gz"
+file_size=354063
+file_md5=e9286adb64040071c5e23498bf753261
+file="lz4-1.9.4.tar.gz"
+dir='lz4-1.9.4'
+recipe_type=makefile
