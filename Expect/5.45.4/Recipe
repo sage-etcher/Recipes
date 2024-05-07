@@ -1,0 +1,19 @@
+# Recipe for version 5.45.4.4 by Sage I. Hendricks <sage.message@email.com>, on Tue 07 May 2024 06:19:25 PM EDT
+# Recipe (MakeRecipe) for Expect by Jonas Karlsson <jonka750@student.liu.se>, on Tue Oct 17 19:02:35 CEST 2006
+compile_version=1.8.2
+url="http://sourceforge.net/projects/expect/files/Expect/5.45.4/expect5.45.4.tar.gz"
+file_size=632363
+file_md5=00fce8de158422f5ccd2666512329bd2
+recipe_type=configure
+
+configure_options=(
+   "--prefix=${target}"
+   "--with-tcl=${tcl_path}/lib"
+   "--enable-shared"
+   "--mandir=${target}/share/man"
+   "--with-tclinclude=${tcl_path}/include/"
+)
+
+pre_link() {
+   ln -sf "expect5.45.4/libexpect5.45.4.so" "${target}/lib"
+}
