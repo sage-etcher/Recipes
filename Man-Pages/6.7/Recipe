@@ -1,0 +1,15 @@
+# Recipe for version 6.7 by Sage I. Hendricks <sage.message@email.com>, on Tue 07 May 2024 03:48:04 PM EDT
+compile_version=1.9.0
+url="https://mirrors.edge.kernel.org/pub/linux/docs/man-pages/man-pages-6.7.tar.xz"
+file_size=2179788
+file_md5=1bd39d60e741f37b550d27f9d4fb1656
+recipe_type=makefile
+makefile=GNUmakefile
+do_build=no
+install_variables=(
+   prefix=$target
+)
+pre_link() {
+   # we have our own hier man page.
+   $sudo_exec rm -f $target/share/man/man7/hier.7
+}
