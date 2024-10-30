@@ -1,69 +1,40 @@
-# less-magic LuaRocks Environment file for GoboLinux
+# brute force LuaRocks Environment File
 # 10/30/2024
 
+gen_luarocks_path ()
+{
+   local version="$1"
 
-# set the LUA_PATH, LUA_PATH_5_2, LUA_PATH_5_3, and LUA_PATH_5_4 environment variables
-# generate the path values
-arr_path=("5.1=${LUA_PATH}" "5.2=${LUA_PATH_5_2}" "5.3=${LUA_PATH_5_3}" "5.4=${LUA_PATH_5_4}")
-arr_path=(${arr_path[@]%*;?})
-arr_path_keys=(${arr_path[@]%=*})
-arr_path_values=(${arr_path[@]#*=})
-arr_path_result=()
-
-for i in $(seq 0 ${#arr_path[@]}); do
-   version="${arr_path_keys[$i]}"
-   initial_path="${arr_path_values[$i]}"
-
-   # build the luarocks path
-   luarocks_path="\
+   local luarocks_path="\
 ${goboSystem}/Aliens/LuaRocks/share/lua/${version}/?.lua;\
 ${goboSystem}/Aliens/LuaRocks/share/lua/${version}/?/init.lua;\
 ${goboSystem}/Aliens/LuaRocks/lib/lua/${version}/?.lua;\
 ${goboSystem}/Aliens/LuaRocks/lib/lua/${version}/?/init.lua"
 
-   if [[ -z "${initial_path}" ]]; then
-      arr_path_results[$i]="${luarocks_path};;"
-   else
-      arr_path_results[$i]="${initial_path};${luarocks_path};;"
-   fi
-done
+  echo "${luarocks_path}"
+}
 
-# set the environement variables
-export LUA_PATH="${arr_path_results[0]}"
-export LUA_PATH_5_2="${arr_path_results[1]}"
-export LUA_PATH_5_3="${arr_path_results[2]}"
-export LUA_PATH_5_4="${arr_path_results[3]}"
+gen_luarocks_cpath ()
+{
+   local version="$1"
 
-
-
-# set the LUA_CPATH, LUA_CPATH_5_2, LUA_CPATH_5_3, and LUA_CPATH_5_4 environment variables
-# generate the cpath values
-arr_cpath=("5.1=${LUA_CPATH}" "5.2=${LUA_CPATH_5_2}" "5.3=${LUA_CPATH_5_3}" "5.4=${LUA_CPATH_5_4}")
-arr_cpath=(${arr_cpath[@]%*;?})
-arr_cpath_keys=(${arr_cpath[@]%=*})
-arr_cpath_values=(${arr_cpath[@]#*=})
-arr_cpath_results=()
-
-for i in $(seq 0 ${#arr_cpath[@]}); do
-   version="${arr_cpath_keys[$i]}"
-   initial_cpath="${arr_cpath_values[$i]}"
-
-   # build the luarocks cpath
-   luarocks_cpath="\
+   local luarocks_cpath="\
 ${goboSystem}/Aliens/LuaRocks/lib/lua/${version}/?.so;\
 ${goboSystem}/Aliens/LuaRocks/lib/lua/${version}/loadall.so"
 
-   if [[ -z "${initial_cpath}" ]]; then
-      arr_cpath_results[$i]="${luarocks_cpath};;"
-   else
-      arr_cpath_results[$i]="${initial_cpath};${luarocks_cpath};;"
-   fi
-done
+  echo "${luarocks_cpath}"
+}
 
-# set the environement variables
-export LUA_CPATH="${arr_cpath_results[0]}"
-export LUA_CPATH_5_2="${arr_cpath_results[1]}"
-export LUA_CPATH_5_3="${arr_cpath_results[2]}"
-export LUA_CPATH_5_4="${arr_cpath_results[3]}"
+
+export LUA_PATH="${LUA_PATH};$(gen_luarocks_path 5.1)"
+export LUA_PATH_5_2="${LUA_PATH};$(gen_luarocks_path 5.2)"
+export LUA_PATH_5_3="${LUA_PATH};$(gen_luarocks_path 5.3)"
+export LUA_PATH_5_4="${LUA_PATH};$(gen_luarocks_path 5.4)"
+
+export LUA_CPATH="${LUA_CPATH};$(gen_luarocks_cpath 5.1)"
+export LUA_CPATH_5_2="${LUA_CPATH};$(gen_luarocks_cpath 5.2)"
+export LUA_CPATH_5_3="${LUA_CPATH};$(gen_luarocks_cpath 5.3)"
+export LUA_CPATH_5_4="${LUA_CPATH};$(gen_luarocks_cpath 5.4)"
+
 
 
