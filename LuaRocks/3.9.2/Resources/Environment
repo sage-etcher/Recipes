@@ -1,5 +1,5 @@
 # brute force LuaRocks Environment File
-# 10/30/2024
+# 10/31/2024
 
 gen_luarocks_path ()
 {
@@ -27,14 +27,14 @@ ${goboSystem}/Aliens/LuaRocks/lib/lua/${version}/loadall.so"
 
 
 export LUA_PATH="${LUA_PATH};$(gen_luarocks_path 5.1)"
-export LUA_PATH_5_2="${LUA_PATH};$(gen_luarocks_path 5.2)"
-export LUA_PATH_5_3="${LUA_PATH};$(gen_luarocks_path 5.3)"
-export LUA_PATH_5_4="${LUA_PATH};$(gen_luarocks_path 5.4)"
+export LUA_PATH_5_2="${LUA_PATH_5_2};$(gen_luarocks_path 5.2)"
+export LUA_PATH_5_3="${LUA_PATH_5_3};$(gen_luarocks_path 5.3)"
+export LUA_PATH_5_4="${LUA_PATH_5_4};$(gen_luarocks_path 5.4)"
 
 export LUA_CPATH="${LUA_CPATH};$(gen_luarocks_cpath 5.1)"
-export LUA_CPATH_5_2="${LUA_CPATH};$(gen_luarocks_cpath 5.2)"
-export LUA_CPATH_5_3="${LUA_CPATH};$(gen_luarocks_cpath 5.3)"
-export LUA_CPATH_5_4="${LUA_CPATH};$(gen_luarocks_cpath 5.4)"
+export LUA_CPATH_5_2="${LUA_CPATH_5_2};$(gen_luarocks_cpath 5.2)"
+export LUA_CPATH_5_3="${LUA_CPATH_5_3};$(gen_luarocks_cpath 5.3)"
+export LUA_CPATH_5_4="${LUA_CPATH_5_4};$(gen_luarocks_cpath 5.4)"
 
 
 
