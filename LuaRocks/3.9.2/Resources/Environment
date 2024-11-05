@@ -1,5 +1,4 @@
-# brute force LuaRocks Environment File
-# 10/31/2024
+# LuaRocks Environment File
 
 gen_luarocks_path ()
 {
